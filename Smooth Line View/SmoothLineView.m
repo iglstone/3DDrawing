@@ -183,7 +183,9 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
     BOOL re = [final writeToFile:[self documentsPath:@"userfile2.txt"] atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if (re) {
         NSLog(@"write yes");
-    }
+    }else
+        NSLog(@"write no");
+    m_mutArray = nil;
 }
 
 -(NSString *)documentsPath:(NSString *)fileName {
