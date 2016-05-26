@@ -75,6 +75,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2);
     _lineColor = DEFAULT_COLOR;
     _empty = YES;
       m_mutArray = [NSMutableArray new];
+      
   }
   
   return self;

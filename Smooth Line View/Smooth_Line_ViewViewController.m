@@ -28,18 +28,25 @@
 #import "Smooth_Line_ViewViewController.h"
 
 #import <CoreMotion/CoreMotion.h>
+#import "CarvingRobot.h"
 
 @interface Smooth_Line_ViewViewController ()
-@property (nonatomic) SmoothLineView * canvas;
+//@property (nonatomic) SmoothLineView * canvas;
+@property (nonatomic) CarvingRobot * canvas;
 @end
 
 @implementation Smooth_Line_ViewViewController
 
 - (void)viewDidLoad
 {
-  SmoothLineView * smoothLineView =[[SmoothLineView alloc] initWithFrame:self.view.bounds ];
-  self.canvas = smoothLineView;
-  [self.view addSubview:smoothLineView];
+//  SmoothLineView * smoothLineView =[[SmoothLineView alloc] initWithFrame:self.view.bounds ];
+//  self.canvas = smoothLineView;
+//  [self.view addSubview:smoothLineView];
+    
+    CarvingRobot * smoothLineView =[[CarvingRobot alloc] initWithFrame:self.view.bounds ];
+    self.canvas = smoothLineView;
+    [self.view addSubview:smoothLineView];
+    
 }
 
 -(BOOL)canBecomeFirstResponder {

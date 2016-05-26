@@ -19,6 +19,7 @@
 		6B93BE8213F3374200DFAB23 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B93BE8013F3374200DFAB23 /* MainWindow.xib */; };
 		6B93BE8513F3374200DFAB23 /* Smooth_Line_ViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B93BE8413F3374200DFAB23 /* Smooth_Line_ViewViewController.m */; };
 		6BA2EACC15E7F21C009779C5 /* Smooth_Line_ViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2EACB15E7F21C009779C5 /* Smooth_Line_ViewViewController.xib */; };
+		E39247511CF72C1C00FE4AEB /* CarvingRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = E39247501CF72C1C00FE4AEB /* CarvingRobot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		6B93BE8313F3374200DFAB23 /* Smooth_Line_ViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Smooth_Line_ViewViewController.h; sourceTree = "<group>"; };
 		6B93BE8413F3374200DFAB23 /* Smooth_Line_ViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Smooth_Line_ViewViewController.m; sourceTree = "<group>"; };
 		6BA2EACB15E7F21C009779C5 /* Smooth_Line_ViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smooth_Line_ViewViewController.xib; sourceTree = "<group>"; };
+		E392474F1CF72C1C00FE4AEB /* CarvingRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarvingRobot.h; sourceTree = "<group>"; };
+		E39247501CF72C1C00FE4AEB /* CarvingRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarvingRobot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				6BA2EACB15E7F21C009779C5 /* Smooth_Line_ViewViewController.xib */,
 				6B250CCB13F9ED20002A5D9D /* SmoothLineView.h */,
 				6B250CCC13F9ED20002A5D9D /* SmoothLineView.m */,
+				E392474F1CF72C1C00FE4AEB /* CarvingRobot.h */,
+				E39247501CF72C1C00FE4AEB /* CarvingRobot.m */,
 				6B93BE7513F3374200DFAB23 /* Supporting Files */,
 			);
 			path = "Smooth Line View";
@@ -139,7 +144,7 @@
 		6B93BE6113F3374100DFAB23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = culturezoo;
 				TargetAttributes = {
 					6B93BE6913F3374200DFAB23 = {
@@ -185,6 +190,7 @@
 			files = (
 				6B93BE7B13F3374200DFAB23 /* main.m in Sources */,
 				6B93BE7F13F3374200DFAB23 /* Smooth_Line_ViewAppDelegate.m in Sources */,
+				E39247511CF72C1C00FE4AEB /* CarvingRobot.m in Sources */,
 				6B93BE8513F3374200DFAB23 /* Smooth_Line_ViewViewController.m in Sources */,
 				6B250CCD13F9ED20002A5D9D /* SmoothLineView.m in Sources */,
 			);
@@ -218,6 +224,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -266,6 +273,7 @@
 				GCC_PREFIX_HEADER = "Smooth Line View/Smooth Line View-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Smooth Line View/Smooth Line View-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.culturezoo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -282,6 +290,7 @@
 				GCC_PREFIX_HEADER = "Smooth Line View/Smooth Line View-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "Smooth Line View/Smooth Line View-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.culturezoo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
