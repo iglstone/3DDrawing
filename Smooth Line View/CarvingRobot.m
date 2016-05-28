@@ -13,6 +13,8 @@
 #define DEFAULT_WIDTH               5.0f
 #define DEFAULT_BACKGROUND_COLOR    [UIColor whiteColor]
 
+#define POINTSCALE 8
+
 static const CGFloat kPointMinDistance = 4.0f;
 static const CGFloat kPointMinDistanceSquared = kPointMinDistance * kPointMinDistance;
 
@@ -109,10 +111,13 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
     self.previousPreviousPoint = [touch previousLocationInView:self];
     self.currentPoint = [touch locationInView:self];
     
-    NSString *tm = [NSString stringWithFormat:@"G0 X%.2f Y%.2f",self.currentPoint.x, self.currentPoint.y];//定位
+
+    NSString *tm = [NSString stringWithFormat:@"G0 X%.2f Y%.2f\n",self.currentPoint.x / POINTSCALE, self.currentPoint.y / POINTSCALE];//定位
     [m_mutArray addObject:tm];
+    
+    
     // call touchesMoved:withEvent:, to possibly draw on zero movement
-    [self touchesMoved:touches withEvent:event];
+//    [self touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -129,11 +134,13 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
     }
     if (isTouching == NO ) {
         isTouching = YES;
-        [m_mutArray addObject:@"M03"];//开火
+        [m_mutArray addObject:@"G1 Z0.00\n"];
+        [m_mutArray addObject:@"M03\n"];//开火
     }
     
-    NSLog(@"%f, %f",point.x,point.y);
-    NSString *tmpString = [NSString stringWithFormat:@"G1 X%.2f Y%.2f\n",point.x,point.y];
+    NSLog(@"%.2f, %.2f",point.x,point.y);
+    NSString *tmpString = [NSString stringWithFormat:@"G1 X%.2f Y%.2f\n",point.x / POINTSCALE ,point.y / POINTSCALE];
+    NSLog(@"%@",tmpString);
     [m_mutArray addObject:tmpString];
     
     // update points: previousPrevious -> mid1 -> previous -> mid2 -> current
@@ -174,11 +181,13 @@ CGPoint midPoint(CGPoint p1, CGPoint p2) {
     //    NSArray *array = @[@"yes",@"no"];
     
     isTouching = NO;
-    [m_mutArray addObject:@"M05"];//熄火
+    [m_mutArray addObject:@"G1 Z2.00\n"];//熄火
+    [m_mutArray addObject:@"M05\n"];//熄火
+    
 }
 
 - (void)doneDraw {
-    NSString *final = @"G92 X0 Y0 Z0\nG21\nG90\nG1 F200.000000\nM05\n";
+    NSString *final = @"G92 X0 Y0 Z2.0\nG21\nG90\nG1 F200.000000\nM05\n";
     for (NSString *st in m_mutArray) {
         final = [final stringByAppendingString:st];
     }
